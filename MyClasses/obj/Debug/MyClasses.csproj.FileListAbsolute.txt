@@ -8,3 +8,4 @@ E:\Code\github\UnitTesting\MyClasses\bin\Debug\MyClasses.pdb
 E:\Code\github\UnitTesting\MyClasses\obj\Debug\MyClasses.csproj.CoreCompileInputs.cache
 E:\Code\github\UnitTesting\MyClasses\obj\Debug\MyClasses.dll
 E:\Code\github\UnitTesting\MyClasses\obj\Debug\MyClasses.pdb
+E:\Code\github\UnitTesting\MyClasses\obj\Debug\MyClasses.csprojAssemblyReference.cache

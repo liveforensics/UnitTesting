@@ -26,7 +26,9 @@ E:\Code\github\UnitTesting\MyClassesTest\bin\Debug\MyClasses.dll
 E:\Code\github\UnitTesting\MyClassesTest\bin\Debug\MyClasses.pdb
 E:\Code\github\UnitTesting\MyClassesTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 E:\Code\github\UnitTesting\MyClassesTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-E:\Code\github\UnitTesting\MyClassesTest\obj\Debug\MyClassesTest.csprojResolveAssemblyReference.cache
 E:\Code\github\UnitTesting\MyClassesTest\obj\Debug\MyClassesTest.csproj.CoreCompileInputs.cache
 E:\Code\github\UnitTesting\MyClassesTest\obj\Debug\MyClassesTest.dll
 E:\Code\github\UnitTesting\MyClassesTest\obj\Debug\MyClassesTest.pdb
+E:\Code\github\UnitTesting\MyClassesTest\obj\Debug\MyClassesTest.csprojAssemblyReference.cache
+E:\Code\github\UnitTesting\MyClassesTest\obj\Debug\MyClassesTest.csproj.CopyComplete
+E:\Code\github\UnitTesting\MyClassesTest\bin\Debug\FileToDeploy.txt
