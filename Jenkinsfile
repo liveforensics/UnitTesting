@@ -18,15 +18,9 @@ pipeline {
       }
     }
 	stage('Testery') {
-		bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\TestAgent\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" UnitTestProject1.dll /EnableCodeCoverage /Logger:trx'
-		powershell '''$mstestPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\TestAgent\\Team Tools\\Dynamic Code Coverage Tools\\amd64\\CodeCoverage.exe" 
-        Get-ChildItem . -Recurse -Filter *.coverage | 
-        ForEach-Object {
-			$temp = $_.Name + "xml"
-            Write-Host $temp
-            & $mstestPath analyze /output:vstest.coveragexml $_.FullName
-            }
-        Write-Host "OK"'''
+		steps {
+			bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\TestAgent\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" UnitTestProject1.dll /EnableCodeCoverage /Logger:trx'		
+		}
 	}
   }
   environment {
