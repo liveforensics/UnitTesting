@@ -14,12 +14,14 @@ pipeline {
     stage('Buildery') {
       steps {
         bat 'c:\\tools\\nuget.exe restore MyClasses.sln'
-		bat "\"${tool 'VS2017'}\" MyClasses.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+		bat "\"${tool 'VS2017'}\" MyClasses.sln /p:Configuration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
       }
     }
 	stage('Testery') {
+	dir('UnitTestProject1\\bin\\debug') {
 		steps {
 			bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\TestAgent\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" UnitTestProject1.dll /EnableCodeCoverage /Logger:trx'		
+		}
 		}
 	}
   }
