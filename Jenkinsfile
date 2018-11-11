@@ -11,9 +11,10 @@ pipeline {
         echo 'hello mark'
       }
     }
-    stage('Nuget') {
+    stage('Buildery') {
       steps {
-        bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\Common7\\Tools\\VsDevCmd.bat MSBuild"'
+        bat 'nuget restore MyClasses.sln'
+		bat "\"${tool 'MSBuild'}\" MyClasses.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
       }
     }
   }
@@ -21,3 +22,4 @@ pipeline {
     test = '1'
   }
 }
+
