@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Buildery') {
       steps {
-        bat 'c:\tools\nuget.exe restore MyClasses.sln'
+        bat 'c:\\tools\\nuget.exe restore MyClasses.sln'
 		bat "\"${tool 'MSBuild'}\" MyClasses.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
       }
     }
