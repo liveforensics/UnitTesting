@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MyClasses",
+    "\\MyClassesTest"
   ],
+  "SelectedNode": "\\MyClasses.sln",
   "PreviewInSolutionExplorer": false
 }
