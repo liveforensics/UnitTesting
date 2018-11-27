@@ -20,7 +20,7 @@ pipeline {
 	stage('Testery') {	
 		steps {
 		dir('MyClassesTest\\bin\\debug') {
-			bat "\"${tool 'VSTEST'}\"vstest.console.exe" MyClasses.dll /EnableCodeCoverage /Logger:trx'		
+			bat "\"${tool 'VSTEST'}\"vstest.console.exe MyClasses.dll /EnableCodeCoverage /Logger:trx"
 		}
 		}
 	}
