@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'Windows One'
+      label 'docker2'
     }
 
   }
@@ -20,7 +20,7 @@ pipeline {
 	stage('Testery') {	
 		steps {
 		dir('MyClassesTest\\bin\\debug') {
-			bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\TestAgent\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" MyClasses.dll /EnableCodeCoverage /Logger:trx'		
+			bat "\"${tool 'VSTEST'}\"vstest.console.exe" MyClasses.dll /EnableCodeCoverage /Logger:trx'		
 		}
 		}
 	}
