@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'docker2'
+      label 'DockerOne'
     }
 
   }
@@ -9,6 +9,11 @@ pipeline {
     stage('Gittery') {
       steps {
         echo 'hello mark'
+      }
+    }
+    stage('Call Test') {
+      steps {
+        powershell '''if(Test-Path -Path \'build.ps1\'){Invoke-Expression -Command .\\build.ps1}'''
       }
     }
     // stage('Buildery') {
