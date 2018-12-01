@@ -2,6 +2,7 @@ pipeline {
   agent {
     node {
       label 'DockerOne'
+      cleanWs()
     }
 
   }
@@ -13,7 +14,7 @@ pipeline {
     }
     stage('Call Test') {
       steps {
-        powershell '''if(Test-Path -Path \'build.ps1\'){Invoke-Expression -Command .\\build.ps1}'''
+        powershell 'if(Test-Path jenkins\\build.ps1) { Invoke-Expression -Command jenkins\\build.ps1}'
       }
     }
     // stage('Buildery') {
