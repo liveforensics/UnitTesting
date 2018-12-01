@@ -1,8 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'DockerOne'
-      cleanWs()
+      label 'DockerOne'      
     }
 
   }
@@ -10,6 +9,7 @@ pipeline {
     stage('Gittery') {
       steps {
         echo 'hello mark'
+        cleanWs()
       }
     }
     stage('Call Test') {
