@@ -2,9 +2,13 @@ Write-Host "Running TESTING Script"
 
 Push-Location | Out-Null
 
-Get-Location
+$location = Get-Location
 
+$location = Join-Path $location 'MyClassesTest\\bin\\debug'
 
+Set-Location $location
+
+vstest.console.exe MyClassesTest.dll /EnableCodeCoverage /Logger:trx
 
 Pop-Location | Out-Null
 
