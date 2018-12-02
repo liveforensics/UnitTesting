@@ -13,9 +13,13 @@ Write-Host "Restoring Nuget Packages"
 nuget restore
 
 Write-Host "Building the Project"
-# Invoke-Expression -Command "msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber"
-msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber | Out-Host
+Invoke-Expression -Command "msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber"
+# msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber | Out-Host
 
-Write-Host "EXIT CODE = $LASTTEXITCODE"
+if($lastexitcode){
+    Write-Host "EXITTCODE = $lastexitcode"
+}else{
+   Write-Host 'No Error reported'
+}
 
 Pop-Location
