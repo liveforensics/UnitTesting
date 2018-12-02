@@ -3,7 +3,7 @@ param($BuildNumber)
 
 Write-Host "Running BUILD Script for build" $BuildNumber
 
-Push-Location
+Push-Location | Out-Null
 
 Get-Location
 
@@ -15,13 +15,12 @@ nuget restore
 Write-Host "Building the Project"
 # Invoke-Expression -Command "msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber"
 # msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber | Out-Host
+$Result = (Start-Process -FilePath 'msbuild.exe' -ArgumentList 'myclasses.sln /p:Configuration=Debug /p:ProductVersion=1.0.0.$BuildNumber /p:Platform="Any CPU"' -Wait -NoNewWindow -PassThru).ExitCode
 
-$Result = (Start-Process -FilePath 'msbuild.exe' -ArgumentList 'myclasses.sln /p:Configuration=Debug /p:Platform="""Any CPU""" /p:ProductVersion=1.0.0.$BuildNumber' -Wait -NoNewWindow -PassThru).ExitCode
-$Result
-if($lastexitcode){
-    Write-Host "EXITTCODE = $lastexitcode"
+if($Result){
+    Write-Host "EXITTCODE = $Result"
 }else{
-   Write-Host 'No Error reported'
+   Write-Host 'No Exit Code reported'
 }
 
-Pop-Location
+Pop-Location | Out-Null
