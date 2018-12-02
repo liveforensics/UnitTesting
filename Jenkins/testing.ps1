@@ -10,7 +10,10 @@ Set-Location $location
 
 vstest.console.exe MyClassesTest.dll /EnableCodeCoverage /Logger:trx
 
-Get-ChildItem . -File -Recurse | Where-Object {$_.Extension -eq '.coverage'} | Move-Item $_.Fullname -Destination .\$_.Name
+Get-ChildItem . -File -Recurse | Where-Object {$_.Extension -eq '.coverage'; } | ForEach-Object {
+    Move-Item $_.FullName -Destination .\$_.Name
+}
+
 
 Pop-Location | Out-Null
 
