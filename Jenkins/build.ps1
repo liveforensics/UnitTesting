@@ -21,5 +21,5 @@ msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVer
 Pop-Location | Out-Null
 
 # remember return 0 if all was well and something else if there was a problem
-exit 1
+exit 0
 
