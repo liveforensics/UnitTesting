@@ -17,9 +17,9 @@ Write-Host "Building the Project"
 msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber | Out-File c:\persist\buildresults.log
 # $Result = (Start-Process -FilePath 'msbuild.exe' -ArgumentList 'myclasses.sln /p:Configuration=Debug /p:ProductVersion=1.0.0.$BuildNumber /p:Platform="Any CPU"' -Wait -PassThru).ExitCode
 
-Write-Output "hi from inside the build script"
 
 Pop-Location | Out-Null
 
+# remember return 0 if all was well and something else if there was a problem
 exit 1
 
