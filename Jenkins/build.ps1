@@ -15,7 +15,7 @@ nuget restore
 Write-Host "Building the Project"
 # Invoke-Expression -Command "msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber"
 # msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber | Out-Host
-$Result = (Start-Process -FilePath 'msbuild.exe' -ArgumentList 'myclasses.sln /p:Configuration=Debug /p:ProductVersion=1.0.0.$BuildNumber /p:Platform="Any CPU"' -Wait -NoNewWindow -PassThru).ExitCode
+$Result = (Start-Process -FilePath 'msbuild.exe' -ArgumentList 'myclasses.sln /p:Configuration=Debug /p:ProductVersion=1.0.0.$BuildNumber /p:Platform="Any CPU"' -Wait -PassThru).ExitCode
 
 if($Result){
     Write-Host "EXITTCODE = $Result"
@@ -24,3 +24,5 @@ if($Result){
 }
 
 Pop-Location | Out-Null
+
+return 1
