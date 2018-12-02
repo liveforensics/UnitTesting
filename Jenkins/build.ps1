@@ -13,6 +13,6 @@ Write-Host "Restoring Nuget Packages"
 nuget restore
 
 Write-Host "Building the Project"
-Invoke-Expression -Command "msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber"
-
+$result = Invoke-Expression -Command "msbuild myclasses.sln /p:Configuration=Debug /p:Platform='Any CPU' /p:ProductVersion=1.0.0.$BuildNumber"
+Write-Host $result
 Pop-Location
