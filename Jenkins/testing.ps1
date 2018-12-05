@@ -14,6 +14,7 @@ vstest.console.exe MyClassesTest.dll /Logger:trx /Enablecodecoverage
 
 Get-ChildItem . -File -Recurse | Where-Object {$_.Extension -eq '.coverage'; } | ForEach-Object {
     Write-Host "Found: " $_.FullName
+    Move-Item $_.FullName -Destination $results -Force
 }
 
 # $args = "collect /output:test.coverage .\\MyClassesTest.dll"
