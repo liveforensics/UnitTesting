@@ -5,6 +5,10 @@ Push-Location | Out-Null
 $location = Get-Location
 
 $results = Join-Path $location "RealTestResults"
+if (-not (test-path $results))
+{
+    New-Item $results -ItemType Directory -Force
+}
 
 $location = Join-Path $location 'MyClassesTest\\bin\\debug'
 
