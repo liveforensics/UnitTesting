@@ -14,6 +14,7 @@ Get-ChildItem . -File -Recurse | Where-Object {$_.Extension -eq '.coverage'; } |
     Write-Host "Found: " $_.FullName
 }
 
+codecoverage.exe
 
 Pop-Location | Out-Null
 
