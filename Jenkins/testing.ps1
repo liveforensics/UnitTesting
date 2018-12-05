@@ -21,6 +21,13 @@ Get-ChildItem . -File -Recurse | Where-Object {$_.Extension -eq '.coverage'; } |
     Move-Item $_.FullName -Destination $results -Force
 }
 
+Set-Location $results
+Get-ChildItem . -File | Where-Object {$_.Extension -eq '.coverage'; } | ForEach-Object {
+    Write-Host "Processing: " $_.FullName
+    $target = $_.Name + 'xml'
+    codecoverage analyze /output:$target $_.FullName
+}
+
 # $args = "collect /output:test.coverage .\\MyClassesTest.dll"
 
 # Start-Process -FilePath codecoverage.exe -ArgumentList $args -Wait -PassThru -Verb runAs 
