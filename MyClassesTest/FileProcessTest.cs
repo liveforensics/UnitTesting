@@ -115,7 +115,7 @@ namespace MyClassesTest
 
             fromCall = fp.FileExists(_GoodFileName);
 
-            Assert.IsFalse(fromCall, "File Does NOT Exist.");
+            Assert.IsTrue(fromCall, "File Does NOT Exist.");
         }
         [TestMethod]
         public void FileNameDoesExistMessageWithFormatting()
@@ -125,7 +125,7 @@ namespace MyClassesTest
 
             fromCall = fp.FileExists(_GoodFileName);
 
-            Assert.IsFalse(fromCall, "File '{0}' Does NOT Exist.", _GoodFileName);
+            Assert.IsTrue(fromCall, "File '{0}' Does NOT Exist.", _GoodFileName);
         }
         [TestMethod]
         [Description("Check to see if file does not exist.")]

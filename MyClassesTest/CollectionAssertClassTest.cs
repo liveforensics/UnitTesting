@@ -29,7 +29,7 @@ namespace MyClassesTest
             peopleActual = mgr.GetPeople();
 
             // NOTE: By default it compares the person objects to see if they are Equal (they refer to the same object)
-            CollectionAssert.AreEqual(peopleExpected, peopleActual);
+            CollectionAssert.AreNotEqual(peopleExpected, peopleActual);
         }
 
         [TestMethod]

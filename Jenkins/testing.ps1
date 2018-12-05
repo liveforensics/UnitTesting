@@ -28,12 +28,6 @@ Get-ChildItem . -File | Where-Object {$_.Extension -eq '.coverage'; } | ForEach-
     codecoverage analyze /output:$target $_.FullName
 }
 
-# $args = "collect /output:test.coverage .\\MyClassesTest.dll"
-
-# Start-Process -FilePath codecoverage.exe -ArgumentList $args -Wait -PassThru -Verb runAs 
-#codecoverage.exe collect /output:test.coverage .\MyClassesTest.dll
-# codecoverage.exe analyze /output:test.coveragexml .\test.coverage
-
 Pop-Location | Out-Null
 
 # remember return 0 if all was well and something else if there was a problem
