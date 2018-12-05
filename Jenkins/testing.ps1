@@ -8,14 +8,14 @@ $location = Join-Path $location 'MyClassesTest\\bin\\debug'
 
 Set-Location $location
 
-vstest.console.exe MyClassesTest.dll /EnableCodeCoverage /Logger:trx
+vstest.console.exe MyClassesTest.dll /Logger:trx /ResultsDirectory:c:\\persist
 
 Get-ChildItem . -File -Recurse | Where-Object {$_.Extension -eq '.coverage'; } | ForEach-Object {
-    Move-Item $_.FullName -Destination .\$_.Name -Force
+    Write-Host "Found: " $_.FullName
 }
 
 
 Pop-Location | Out-Null
 
 # remember return 0 if all was well and something else if there was a problem
-exit 1
+exit 0
