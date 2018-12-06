@@ -8,7 +8,6 @@ node('DockerOne'){
             echo "It DIDN'T work"
         }
         def msg = powershell(returnStdout: true, script: 'write-output "calling mark"; write-output "there\'s more"; exit 0')
-        echo 'aaa'
         println msg
        cleanWs()
     }
@@ -18,12 +17,13 @@ node('DockerOne'){
     dir('UnitTesting')
     {
         stage('buildery') {
-            def msg = powershell(returnStdout: true, script: 'if(Test-Path jenkins\\\\build.ps1) { Invoke-Expression -Command "jenkins\\\\build.ps1 -BuildNumber $env:BUILD_NUMBER"}')
-            
-            println msg
+            sendSplunkConsoleLog {
+                def msg = powershell(returnStdout: true, script: 'if(Test-Path jenkins\\\\build.ps1) { Invoke-Expression -Command "jenkins\\\\build.ps1 -BuildNumber $env:BUILD_NUMBER"}')
+            }
         }
         stage('testery') {
             powershell 'if(Test-Path jenkins\\testing.ps1) { Invoke-Expression -Command jenkins\\testing.ps1 }'
+            sendSplunkFile excludes: '', includes: '**/*.trx, **/*.coveragexml', publishFromSlave: true, sizeLimit: '100MB'
         }
         stage('publishery') {
             powershell 'if(Test-Path jenkins\\publish.ps1) { Invoke-Expression -Command jenkins\\publish.ps1 }'
